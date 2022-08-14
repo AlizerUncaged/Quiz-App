@@ -11,8 +11,8 @@ namespace Quiz_App
     public partial class QuizInstance : UserControl, IPage
     {
         public Quiz Quiz { get; }
-        
-        private bool userResult ;
+
+        private bool userResult;
 
         public QuizInstance(Quiz quiz)
         {
@@ -26,11 +26,17 @@ namespace Quiz_App
                 DispatcherTimer quizTimer = new DispatcherTimer();
                 quizTimer.Tick += (sender, args) =>
                 {
+                    if (answered)
+                    {
+                        quizTimer.Stop();
+                        return;
+                    }
+
                     QuizTime.Value -= 1;
                     Quiz.QuestionTime -= 1;
                     if (quiz.QuestionTime <= 7)
                         QuizTime.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E94F4F"));
-                    
+
                     if (Quiz.QuestionTime <= 0)
                     {
                         userResult = false;
@@ -66,8 +72,11 @@ namespace Quiz_App
             ResultDialogHost.IsOpen = true;
         }
 
+        private bool answered = false;
+
         private void AnswerClicked(object sender, MouseButtonEventArgs e)
         {
+            answered = true;
             if (!(sender is Border border)) return;
 
             if (!(border.Child is TextBlock textBlock && textBlock.Text is string userAnswer)) return;

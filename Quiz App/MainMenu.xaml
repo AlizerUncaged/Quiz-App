@@ -8,15 +8,19 @@
              d:DesignWidth="500"
              mc:Ignorable="d">
     <Grid TextElement.Foreground="White">
-        <StackPanel Orientation="Horizontal">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Grid VerticalAlignment="Center" 
                   HorizontalAlignment="Center" 
-                  Margin="0,0,25,0">
+                  Margin="0,0,0,0">
                 <Image Margin="25" Source="/Resources/challenge_illustration-_2x-removebg-preview.png">
 
                 </Image>
             </Grid>
-            <Grid>
+            <Grid Grid.Column="1">
                 <StackPanel TextElement.Foreground="#0C2356" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold" FontSize="24">Welcome Back!</TextBlock>
                     <TextBlock Name="PointsChanged" Margin="0,0,0,10" HorizontalAlignment="Center"
@@ -26,6 +30,6 @@
                     <Button Click="QuizStart">Start Quiz</Button>
                 </StackPanel>
             </Grid>
-        </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

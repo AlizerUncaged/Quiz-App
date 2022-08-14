@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quiz_App" MouseDown="MainWindowClicked"
         mc:Ignorable="d" Background="#42B4A5" ResizeMode="CanResize"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" Height="400" Width="800">
     <!-- Retain shadow and border animations -->
     <WindowChrome.WindowChrome>
@@ -19,10 +20,37 @@
         </Grid>
         <Grid Name="GameArea">
             <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
-                <TextBlock Foreground="#0C2356" VerticalAlignment="Center" FontWeight="Bold" FontSize="16">
+                <TextBlock Name="PointsTextBlock" Foreground="#0C2356" VerticalAlignment="Center" FontWeight="Bold" FontSize="16">
                     <Run Text="Points: "></Run>
                     <Run Name="CurrentPoints">100</Run>
                 </TextBlock>
+            </StackPanel>
+            <materialDesign:DialogHost Name="ResultDialogHost">
+                <materialDesign:DialogHost.DialogContent>
+                    <Border CornerRadius="7" Background="White">
+                        <Grid Margin="15">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <TextBlock Name="ResultText" Margin="0,0,0,10" HorizontalAlignment="Center"
+                                           FontWeight="Bold" Foreground="#179C87" FontSize="24">
+                                    Quiz Done!
+                                </TextBlock>
+                                <TextBlock Name="PointsChanged" Margin="0,0,0,10" HorizontalAlignment="Center"
+                                           Foreground="#179C87" FontSize="16">
+                                    Total Score
+                                </TextBlock>
+                                <Button Click="StartAgain" Content="OK"></Button>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </materialDesign:DialogHost.DialogContent>
+            </materialDesign:DialogHost>
+        </Grid>
+        <Grid>
+            <StackPanel HorizontalAlignment="Right" Cursor="Hand" VerticalAlignment="Top"
+                        Orientation="Horizontal" 
+                        Margin="7">
+                <materialDesign:PackIcon Background="Transparent" Foreground="#0C2356" Kind="Minimize" Width="25" Height="25" Margin="0,0,5,0" MouseDown="MinimizeProgram"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Background="Transparent" Foreground="#0C2356" Kind="Close" Width="25" Height="25"  MouseDown="CloseProgram"></materialDesign:PackIcon>
             </StackPanel>
         </Grid>
     </Grid>
