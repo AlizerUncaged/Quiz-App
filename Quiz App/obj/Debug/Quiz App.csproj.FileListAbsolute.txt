@@ -1,0 +1,30 @@
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Quiz_App.exe.config
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Quiz_App.exe
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Quiz_App.pdb
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz App.csproj.AssemblyReference.cache
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz App.csproj.SuggestedBindingRedirects.cache
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MainWindow.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\App.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App_MarkupCompile.cache
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App_MarkupCompile.lref
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MainWindow.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App.g.resources
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App.Properties.Resources.resources
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz App.csproj.GenerateResource.cache
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz App.csproj.CoreCompileInputs.cache
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App.exe
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App.pdb
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\MaterialDesignColors.dll
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\MaterialDesignThemes.Wpf.dll
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\MaterialDesignColors.pdb
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\MaterialDesignThemes.Wpf.pdb
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\MaterialDesignThemes.Wpf.xml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\QuizInstance.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\QuizInstance.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz App.csproj.CopyComplete
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\App.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Newtonsoft.Json.dll
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Newtonsoft.Json.xml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MainMenu.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MainMenu.baml

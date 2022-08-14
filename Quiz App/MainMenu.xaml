@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Quiz_App.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Quiz_App"
+             d:DesignHeight="300"
+             d:DesignWidth="500"
+             mc:Ignorable="d">
+    <Grid TextElement.Foreground="White">
+        <StackPanel Orientation="Horizontal">
+            <Grid VerticalAlignment="Center" 
+                  HorizontalAlignment="Center" 
+                  Margin="0,0,25,0">
+                <Image Margin="25" Source="/Resources/challenge_illustration-_2x-removebg-preview.png">
+
+                </Image>
+            </Grid>
+            <Grid>
+                <StackPanel TextElement.Foreground="#0C2356" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" FontWeight="Bold" FontSize="24">Welcome Back!</TextBlock>
+                    <TextBlock Name="PointsChanged" Margin="0,0,0,10" HorizontalAlignment="Center"
+                            FontSize="16">
+                        Select the correct answer to win!
+                    </TextBlock>
+                    <Button Click="QuizStart">Start Quiz</Button>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>
