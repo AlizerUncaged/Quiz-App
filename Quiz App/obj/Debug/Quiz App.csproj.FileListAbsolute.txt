@@ -32,3 +32,7 @@ D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Quizzes.json
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App_Content.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MinigameMenu.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MinigameMenu.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\ReactionTime.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\ReactionTime.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\SequenceMemory.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\SequenceMemory.baml

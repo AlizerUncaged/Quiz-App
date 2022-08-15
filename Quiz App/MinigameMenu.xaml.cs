@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using Quiz_App.Minigames;
 
 namespace Quiz_App
 {
@@ -11,5 +13,11 @@ namespace Quiz_App
         }
 
         public event EventHandler<IPage> PageChanged;
+
+        private void ReactionTime(object sender, RoutedEventArgs e) =>
+            PageChanged?.Invoke(this, new ReactionTime());
+
+        private void SequenceMemory(object sender, RoutedEventArgs e)=>
+            PageChanged?.Invoke(this, new SequenceMemory());
     }
 }

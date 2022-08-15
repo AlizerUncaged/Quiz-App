@@ -24,7 +24,7 @@
                         </Grid.RowDefinitions>
                         <Image />
                         <Button
-                            Grid.Row="0"
+                            Grid.Row="0" Click="ReactionTime"
                             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="#42B4A5"
                             HorizontalAlignment="Right" BorderThickness="0" materialDesign:ElevationAssist.Elevation="Dp0"
                             VerticalAlignment="Bottom" Background="White" Foreground="#42B4A5"
@@ -48,7 +48,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Image />
-                        <Button
+                        <Button Click="SequenceMemory"
                             Grid.Row="0"
                             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="#42B4A5"
                             HorizontalAlignment="Right" BorderThickness="0" materialDesign:ElevationAssist.Elevation="Dp0"
@@ -82,11 +82,11 @@
                             <materialDesign:PackIcon Kind="Play" />
                         </Button>
                         <StackPanel Grid.Row="1" Margin="8 24 8 10">
-                            <TextBlock Margin="0,0,0,10" FontWeight="Bold" FontSize="24">Aim Trainer</TextBlock>
+                            <TextBlock Margin="0,0,0,10" FontWeight="Bold" FontSize="24">Tic-Tac-Toe</TextBlock>
                             <TextBlock
                                 TextWrapping="Wrap"
                                 VerticalAlignment="Center"
-                                Text="Aim better." />
+                                Text="Play the popular board game." />
                         </StackPanel>
                     </Grid>
                 </materialDesign:Card>

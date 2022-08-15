@@ -34,11 +34,7 @@ namespace Quiz_App
             GameArea.Visibility = Visibility.Collapsed;
 
             var mainMenu = new MainMenu();
-            mainMenu.StartQuiz += (sender, args) =>
-            {
-                StartQuiz();
-                
-            };
+            mainMenu.StartQuiz += (sender, args) => { StartQuiz(); };
 
             SetPage(mainMenu);
         }
@@ -138,6 +134,11 @@ namespace Quiz_App
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void ReturnMainMenu(object sender, RoutedEventArgs e)
+        {
+            StartAgain(sender, e);
         }
     }
 }
