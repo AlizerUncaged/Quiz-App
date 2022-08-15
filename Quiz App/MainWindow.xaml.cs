@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Quiz_App.Annotations;
 using Quiz_App.Model;
 
 namespace Quiz_App
@@ -22,6 +26,8 @@ namespace Quiz_App
         private Random random =
             new Random();
 
+        public Player Player { get; } = new Player();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,13 +37,12 @@ namespace Quiz_App
             mainMenu.StartQuiz += (sender, args) =>
             {
                 StartQuiz();
+                
             };
-            
+
             SetPage(mainMenu);
         }
 
-        // the points of the player
-        private double currentPoints = 100;
 
         public void SetPage(IPage page)
         {
@@ -49,25 +54,35 @@ namespace Quiz_App
             {
                 quizInstance.PointsIncrement += (sender, d) =>
                 {
-                    currentPoints += d;
-                    CurrentPoints.Text = $"{currentPoints}";
+                    Player.CurrentPoints += d;
+                    CurrentPoints.Text = $"{Player.CurrentPoints}";
                 };
 
                 quizInstance.ResultReceived += (sender, result) =>
                 {
                     if (currentQuizIndex > quizzes.Count - 1)
                     {
-                        var color = currentPoints > 0
+                        var color = Player.CurrentPoints > 0
                             ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3FB2A0"))
                             : new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E94F4F"));
-                        currentPoints += currentPoints;
-                    
+                        // player.CurrentPoints += player.CurrentPoints;
+
                         PointsChanged.Foreground = color;
-                        PointsChanged.Text = $"Total {currentPoints} Points";
-                        ResultDialogHost.IsOpen = true;
+                        QuizDone();
                         return;
                     }
 
+                    if (result == QuizResult.Wrong)
+                        Player.CurrentHealths.RemoveAt(0);
+
+                    if (Player.CurrentHealths.Count <= 0)
+                    {
+                        PointsChanged.Foreground =
+                            new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E94F4F"));
+                        QuizDone();
+                    }
+
+                    OnPropertyChanged(nameof(Player.CurrentHealths));
                     SetPage(new QuizInstance(quizzes[currentQuizIndex]));
                     currentQuizIndex++;
                 };
@@ -77,6 +92,14 @@ namespace Quiz_App
             if (ParentGrid.Children.Count > 0)
                 ParentGrid.Children.RemoveAt(0);
             ParentGrid.Children.Add(userControl);
+        }
+
+        private void QuizDone()
+        {
+            Player.HighestScore =
+                Player.CurrentPoints > Player.HighestScore ? Player.CurrentPoints : Player.HighestScore;
+            PointsChanged.Text = $"Total {Player.CurrentPoints} Points";
+            ResultDialogHost.IsOpen = true;
         }
 
         private void MainWindowClicked(object sender, MouseButtonEventArgs e)
@@ -89,11 +112,9 @@ namespace Quiz_App
             GameArea.Visibility = Visibility.Collapsed;
             ResultDialogHost.IsOpen = false;
             var mainMenu = new MainMenu();
-            mainMenu.StartQuiz += (sender, args) =>
-            {
-                StartQuiz();
-            };
-            
+            mainMenu.HighestScoreValue = Player.HighestScore;
+            mainMenu.StartQuiz += (sender, args) => { StartQuiz(); };
+
             SetPage(mainMenu);
         }
 
@@ -101,7 +122,7 @@ namespace Quiz_App
         {
             currentQuizIndex = 1;
             GameArea.Visibility = Visibility.Visible;
-            CurrentPoints.Text = $"{currentPoints}";
+            CurrentPoints.Text = $"{Player.CurrentPoints}";
             SetPage(new QuizInstance(quizzes[currentQuizIndex - 1]));
         }
 
@@ -110,5 +131,13 @@ namespace Quiz_App
 
         private void MinimizeProgram(object sender, MouseButtonEventArgs e) =>
             this.WindowState = System.Windows.WindowState.Minimized;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

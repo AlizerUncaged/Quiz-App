@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Quiz_App" MouseDown="MainWindowClicked"
         mc:Ignorable="d" Background="#42B4A5" ResizeMode="CanResize"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="400" Width="800">
+        Title="MainWindow" Height="480" Width="900">
     <!-- Retain shadow and border animations -->
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="-1" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False"
@@ -19,9 +19,21 @@
             </Grid.Effect>
         </Grid>
         <Grid Name="GameArea">
-            <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
-                <TextBlock Name="PointsTextBlock" Foreground="#0C2356" VerticalAlignment="Center" FontWeight="Bold" FontSize="16">
-                    <Run Text="Points: "></Run>
+            <StackPanel TextElement.Foreground="#FFE288" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15"
+                        Orientation="Horizontal">
+                <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:MainWindow}}, Path=Player.CurrentHealths, Mode=OneWay}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" TextElement.Foreground="#EA4E4E" VerticalAlignment="Center"/></ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:PackIcon Kind="Heart" Margin="0,0,15,0"></materialDesign:PackIcon></DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <materialDesign:PackIcon VerticalAlignment="Center" Margin="0,0,5,0" Kind="Hexagram"></materialDesign:PackIcon>
+                <TextBlock Name="PointsTextBlock" Foreground="#FFE288" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,15,0"
+                           FontSize="16">
                     <Run Name="CurrentPoints">100</Run>
                 </TextBlock>
             </StackPanel>
@@ -47,10 +59,14 @@
         </Grid>
         <Grid>
             <StackPanel HorizontalAlignment="Right" Cursor="Hand" VerticalAlignment="Top"
-                        Orientation="Horizontal" 
+                        Orientation="Horizontal"
                         Margin="7">
-                <materialDesign:PackIcon Background="Transparent" Foreground="#0C2356" Kind="Minimize" Width="25" Height="25" Margin="0,0,5,0" MouseDown="MinimizeProgram"></materialDesign:PackIcon>
-                <materialDesign:PackIcon Background="Transparent" Foreground="#0C2356" Kind="Close" Width="25" Height="25"  MouseDown="CloseProgram"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Background="Transparent" Foreground="#0C2356" Kind="Minimize" Width="25"
+                                         Height="25" Margin="0,0,5,0" MouseDown="MinimizeProgram">
+                </materialDesign:PackIcon>
+                <materialDesign:PackIcon Background="Transparent" Foreground="#0C2356" Kind="Close" Width="25"
+                                         Height="25" MouseDown="CloseProgram">
+                </materialDesign:PackIcon>
             </StackPanel>
         </Grid>
     </Grid>
