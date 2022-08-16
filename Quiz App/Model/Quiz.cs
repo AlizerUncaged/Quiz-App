@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Quiz_App.Model
 {
     public class Quiz
     {
+        private static readonly Random random = new Random();
         public int Points { get; set; } = 20;
 
         public string QuestionSentence { get; set; }
@@ -22,18 +25,43 @@ namespace Quiz_App.Model
 
         public static IEnumerable<Quiz> LoadQuizzes(string path)
         {
-            var quizTest = new Quiz()
+            var fileContent = File.ReadAllText(path);
+            var quizQuestions = fileContent.Split(new string[] { "\r\n\r\n" },
+                StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim());
+
+            List<Quiz> quizzes = new List<Quiz>();
+            foreach (var rawQuestions in quizQuestions)
             {
-                QuestionSentence = "Two angles are complementary, therefore the sum of their measures is",
-                Answers = new[] { "-90°", "-10°", "-180°", "-360°" },
-                CorrectAnswer = "-90°",
-            };
+                var splitted = rawQuestions.Split('\n');
 
-            if (!File.Exists(path))
-                File.WriteAllText(path, JsonConvert.SerializeObject(new[] { quizTest }, Formatting.Indented));
+                var question = splitted[0]
+                    .Split(new string[] { "." }, 2, StringSplitOptions.None)
+                    .Last()
+                    .Trim();
 
+                var answer = splitted[1]
+                    .Split(new string[] { "." }, 2, StringSplitOptions.None)
+                    .Last()
+                    .Trim()
+                    .ToLower();
 
-            return JsonConvert.DeserializeObject<IEnumerable<Quiz>>(File.ReadAllText(path));
+                var answers = splitted[2]
+                    .Split(new string[] { ".", "  " }, StringSplitOptions.RemoveEmptyEntries)
+                    .Where(x => x.Count() > 1)
+                    .Select(c => c.Trim());
+
+                Quiz quiz = new Quiz()
+                {
+                    QuestionTime = 20,
+                    QuestionSentence = question,
+                    CorrectAnswer = answer,
+                    Answers = answers
+                };
+
+                quizzes.Add(quiz);
+            }
+
+            return quizzes.OrderBy(x => random.Next());
         }
     }
 }

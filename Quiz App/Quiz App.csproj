@@ -136,7 +136,7 @@
       <Content Include="TypeText.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
-      <Content Include="Quizzes.json">
+      <Content Include="Quizzes.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>

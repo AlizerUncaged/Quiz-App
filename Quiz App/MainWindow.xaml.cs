@@ -19,7 +19,7 @@ namespace Quiz_App
     public partial class MainWindow
     {
         private List<Model.Quiz> quizzes =
-            Model.Quiz.LoadQuizzes("Quizzes.json").ToList();
+            Model.Quiz.LoadQuizzes("Quizzes.txt").ToList();
 
         private int currentQuizIndex = 1;
 

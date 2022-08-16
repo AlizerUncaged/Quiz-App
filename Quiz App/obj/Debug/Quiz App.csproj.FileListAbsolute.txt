@@ -28,7 +28,6 @@ D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Newtonsoft.Json.dll
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Newtonsoft.Json.xml
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MainMenu.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MainMenu.baml
-D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Quizzes.json
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Quiz_App_Content.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MinigameMenu.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\MinigameMenu.baml
@@ -43,3 +42,4 @@ D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\NumberMemory.
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\TypeText.txt
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\TypingTest.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\TypingTest.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\Quizzes.txt

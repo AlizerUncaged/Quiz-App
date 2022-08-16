@@ -37,9 +37,12 @@ namespace Quiz_App.Minigames
 
 
                     border.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE185"));
+
                     border.Child = marker;
+                    border.UpdateLayout();
 
                     ComputerTurn();
+
                     if (IsGameOver())
                     {
                     }
@@ -51,87 +54,78 @@ namespace Quiz_App.Minigames
         {
             var borders = PanelLists.Children.Cast<StackPanel>()
                 .Select(x => x.Children)
-                .Select(y => y.Cast<Border>());
+                .SelectMany(y => y.Cast<Border>()).ToList()
+                .Select(x => x.Child is null ? "" : (x.Child as PackIcon).Kind.ToString())
+                .ToList();
+            /*
+             * 0 1 2
+             * 3 4 5
+             * 6 7 8
+             */
 
-            for (int x = 0; x < 3; x++)
+            // Boi.
+            string answer = "?";
+            if (borders[0] == borders[1] && borders[1] == borders[2])
             {
-                var top = borders.ToList()[x];
-                if (top.First().Child is null) continue;
+                answer = borders[0];
+            }
 
-                bool isMarked = true;
+            if (borders[3] == borders[4] && borders[4] == borders[5])
+            {
+                answer = borders[3];
+            }
 
-                string markType = (top.First().Child as PackIcon).Kind.ToString();
+            if (borders[6] == borders[7] && borders[7] == borders[8])
+            {
+                answer = borders[6];
+            }
 
-                // Do horizontal.
-                for (int y = 0; y < 3; y++) // X -> 2
+            if (borders[0] == borders[3] && borders[3] == borders[6])
+            {
+                answer = borders[0];
+            }
+
+            if (borders[1] == borders[4] && borders[4] == borders[7])
+            {
+                answer = borders[1];
+            }
+
+            if (borders[2] == borders[5] && borders[5] == borders[8])
+            {
+                answer = borders[2];
+            }
+
+            if (borders[0] == borders[4] && borders[4] == borders[8])
+            {
+                answer = borders[0];
+            }
+
+            if (borders[2] == borders[4] && borders[4] == borders[6])
+            {
+                answer = borders[2];
+            }
+
+
+            if (answer != "?")
+            {
+                if (answer == "Remove")
                 {
-                    var bottom = top.ToList()[y];
-                    if (bottom.Child is null)
-                    {
-                        isMarked = false;
-                        break;
-                    }
-
-                    var mark = (bottom.Child as PackIcon).Kind.ToString();
-
-                    if (!mark.Equals(markType))
-                    {
-                        isMarked = false;
-                        break;
-                    }
+                    ResultDialogHost.IsOpen = true;
                 }
-
-                // Do vertical.
-                if (!isMarked)
+                else if (!string.IsNullOrWhiteSpace(answer))
                 {
-                    isMarked = true;
-                    string markType2 = null;
-                    for (var y = 0; y < 3; y++)
-                    {
-                        var first = borders.ToList()[y].ToList()[x];
-
-                        if (first.Child is null)
-                        {
-                            isMarked = false;
-                            continue;
-                        }
-
-                        if (markType2 is null)
-                            markType2 = (first.Child as PackIcon).Kind.ToString();
-
-                        var mark = (first.Child as PackIcon).Kind.ToString();
-
-                        if (!mark.Equals(markType))
-                        {
-                            isMarked = false;
-                            break;
-                        }
-                    }
-                }
-
-                if (isMarked)
-                {
-                    // Found a win!
-                    if (markType.Equals("Remove"))
-                    {
-                        ResultDialogHost.IsOpen = true;
-                    }
-                    else
-                    {
-                        ClickNow.Text = "Lose.";
-                        ResultText.Text = "Lose.";
-                        ClickNow.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E94F4F"));
-                        ResultDialogHost.IsOpen = true;
-                    }
+                    ClickNow.Text = "Lose.";
+                    ResultText.Text = "Lose.";
+                    ClickNow.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E94F4F"));
+                    ResultDialogHost.IsOpen = true;
                 }
             }
-            
+
             // No one won yet?
-            if (!PanelLists.Children.Cast<StackPanel>()
-                    .Select(x => x.Children)
-                    .SelectMany(y => y.Cast<Border>()).Where(x => x.Child is null).Any())
+            if (!PanelLists.Children
+                    .Cast<StackPanel>()
+                    .Select(x => x.Children).SelectMany(y => y.Cast<Border>()).Any(x => x.Child is null))
             {
-                
                 ClickNow.Text = "Draw.";
                 ResultText.Text = "Draw.";
                 ClickNow.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff"));

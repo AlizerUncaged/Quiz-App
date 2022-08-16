@@ -20,14 +20,16 @@ namespace Quiz_App.Minigames
                 .SelectMany(y => y.Cast<Border>()).ToList();
             SubmitButton.Visibility = Visibility.Collapsed;
 
+            var numbers = Enumerable.Range(0, 9).OrderBy(x => random.Next()).ToList();
+
             foreach (var border in borders)
             {
                 var marker = new Label()
                 {
-                    Content = random.Next(0, 99).ToString(),
-                    Width = 50, 
+                    Content = numbers[borders.IndexOf(border)].ToString(),
+                    Width = 50,
                     Height = 50,
-                    FontWeight = FontWeights.Bold, 
+                    FontWeight = FontWeights.Bold,
                     FontSize = 24,
                     Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff")),
                     Margin = new Thickness(0),
@@ -57,13 +59,15 @@ namespace Quiz_App.Minigames
                                     VerticalAlignment = VerticalAlignment.Center,
                                     HorizontalAlignment = HorizontalAlignment.Center,
                                     Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#fff")),
-                                    FontWeight = FontWeights.Bold, FontSize = 16, BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE185")),
+                                    FontWeight = FontWeights.Bold, FontSize = 16,
+                                    BorderBrush =
+                                        new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE185")),
                                 };
-                                
+
                                 border.Child = textBox;
                             }
                         }));
-                        
+
                         return;
                     }
 
@@ -101,7 +105,8 @@ namespace Quiz_App.Minigames
                     ResultDialogHost.IsOpen = true;
                     return;
                 }
-            }  
+            }
+
             ResultText.Text = "Win!";
             ResultDialogHost.IsOpen = true;
         }
