@@ -19,5 +19,14 @@ namespace Quiz_App
 
         private void SequenceMemory(object sender, RoutedEventArgs e)=>
             PageChanged?.Invoke(this, new SequenceMemory());
+
+        private void TicTacToe(object sender, RoutedEventArgs e)=>
+            PageChanged?.Invoke(this, new TicTacToe());
+
+        private void NumberMemory(object sender, RoutedEventArgs e)=>
+            PageChanged?.Invoke(this, new NumberMemory());
+
+        private void TypingText(object sender, RoutedEventArgs e)=>
+            PageChanged?.Invoke(this, new TypingTest());
     }
 }

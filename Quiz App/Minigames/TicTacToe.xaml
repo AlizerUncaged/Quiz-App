@@ -1,20 +1,21 @@
-﻿<UserControl x:Class="Quiz_App.Minigames.SequenceMemory"
+﻿<UserControl x:Class="Quiz_App.Minigames.TicTacToe"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Quiz_App.Minigames"
+             mc:Ignorable="d"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" Loaded="Rendered"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <StackPanel TextElement.Foreground="White">
+           <StackPanel TextElement.Foreground="White">
             <TextBlock Name="ClickNow" Margin="0,15,0,10" HorizontalAlignment="Center"
-                       FontSize="16" FontWeight="Bold" Text="Recall.">
+                       FontSize="16" FontWeight="Bold" Text="Your turn.">
             </TextBlock>
             <StackPanel Name="PanelLists" VerticalAlignment="Center" HorizontalAlignment="Center" Cursor="Hand">
                 <StackPanel Orientation="Horizontal">
-                    <Border CornerRadius="7" Width="100" Height="100" Margin="15" Background="#42B4A5"></Border>
+                    <Border CornerRadius="7" Width="100" Height="100" Margin="15" Background="#42B4A5">
+                    </Border>
                     <Border CornerRadius="7" Width="100" Height="100" Margin="15" Background="#42B4A5"></Border>
                     <Border CornerRadius="7" Width="100" Height="100" Margin="15" Background="#42B4A5"></Border>
                 </StackPanel>
@@ -37,7 +38,7 @@
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                             <TextBlock Name="ResultText" Margin="0,0,0,10" HorizontalAlignment="Center"
                                        FontWeight="Bold" Foreground="#179C87" FontSize="24">
-                                Done!
+                                Win!
                             </TextBlock>
                             <Button Click="StartAgain" Content="Start Again"></Button>
                         </StackPanel>

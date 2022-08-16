@@ -78,7 +78,7 @@
                             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="#42B4A5"
                             HorizontalAlignment="Right" BorderThickness="0" materialDesign:ElevationAssist.Elevation="Dp0"
                             VerticalAlignment="Bottom"  Background="White" Foreground="#42B4A5"
-                            Margin="0 0 16 -20">
+                            Margin="0 0 16 -20" Click="TicTacToe">
                             <materialDesign:PackIcon Kind="Play" />
                         </Button>
                         <StackPanel Grid.Row="1" Margin="8 24 8 10">
@@ -106,7 +106,7 @@
                         </Grid.RowDefinitions>
                         <Image />
                         <Button
-                            Grid.Row="0"
+                            Grid.Row="0" Click="NumberMemory"
                             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="#42B4A5"
                             HorizontalAlignment="Right" BorderThickness="0" materialDesign:ElevationAssist.Elevation="Dp0"
                             VerticalAlignment="Bottom"  Background="White" Foreground="#42B4A5"
@@ -131,7 +131,7 @@
                         </Grid.RowDefinitions>
                         <Image />
                         <Button
-                            Grid.Row="0"
+                            Grid.Row="0" Click="TypingText"
                             Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" BorderBrush="#42B4A5"
                             HorizontalAlignment="Right" BorderThickness="0" materialDesign:ElevationAssist.Elevation="Dp0"
                             VerticalAlignment="Bottom"  Background="White" Foreground="#42B4A5"

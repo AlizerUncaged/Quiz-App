@@ -36,3 +36,10 @@ D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\ReactionTime.
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\ReactionTime.baml
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\SequenceMemory.g.cs
 D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\SequenceMemory.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\TicTacToe.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\TicTacToe.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\NumberMemory.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\NumberMemory.baml
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\bin\Debug\TypeText.txt
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\TypingTest.g.cs
+D:\Users\floyd\RiderProjects\Quiz App\Quiz App\obj\Debug\Minigames\TypingTest.baml

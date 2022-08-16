@@ -66,11 +66,20 @@
         <Compile Include="MinigameMenu.xaml.cs">
           <DependentUpon>MinigameMenu.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Minigames\NumberMemory.xaml.cs">
+          <DependentUpon>NumberMemory.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Minigames\ReactionTime.xaml.cs">
           <DependentUpon>ReactionTime.xaml</DependentUpon>
         </Compile>
         <Compile Include="Minigames\SequenceMemory.xaml.cs">
           <DependentUpon>SequenceMemory.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Minigames\TicTacToe.xaml.cs">
+          <DependentUpon>TicTacToe.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Minigames\TypingTest.xaml.cs">
+          <DependentUpon>TypingTest.xaml</DependentUpon>
         </Compile>
         <Compile Include="Model\Player.cs" />
         <Compile Include="Model\Quiz.cs" />
@@ -93,8 +102,11 @@
             <SubType>Code</SubType>
         </Compile>
         <Page Include="MinigameMenu.xaml" />
+        <Page Include="Minigames\NumberMemory.xaml" />
         <Page Include="Minigames\ReactionTime.xaml" />
         <Page Include="Minigames\SequenceMemory.xaml" />
+        <Page Include="Minigames\TicTacToe.xaml" />
+        <Page Include="Minigames\TypingTest.xaml" />
         <Page Include="QuizInstance.xaml" />
     </ItemGroup>
     <ItemGroup>
@@ -121,6 +133,9 @@
       </Resource>
     </ItemGroup>
     <ItemGroup>
+      <Content Include="TypeText.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
       <Content Include="Quizzes.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
