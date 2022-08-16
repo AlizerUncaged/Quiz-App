@@ -74,6 +74,18 @@ namespace Quiz_App.Minigames
 
         private void KeyboardPressed(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.CapsLock) 
+                return;
+            if (e.Key == Key.LeftShift) 
+                return;   
+            if (e.Key == Key.RightShift) 
+                return;
+            if (e.Key == Key.LeftAlt) 
+                return;   
+            if (e.Key == Key.RightAlt) 
+                return;
+            if (e.Key == Key.Enter) 
+                return;
             var userCharacter = GetCharFromKey(e.Key);
             var inlines = TypeContent.Inlines.ToList();
             var currentInline = inlines[currentLetter] as Run;
@@ -89,6 +101,7 @@ namespace Quiz_App.Minigames
             {
                 currentInline.Text = "_";
                 WordsPerMinute.Text = $"WPM: {words}";
+                
                 if (!justSpaced)
                     words++;
 
