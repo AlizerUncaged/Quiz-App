@@ -47,8 +47,8 @@ namespace Quiz_App.Model
 
                 var answers = splitted[2]
                     .Split(new string[] { ".", "  " }, StringSplitOptions.RemoveEmptyEntries)
-                    .Where(x => x.Count() > 1)
-                    .Select(c => c.Trim());
+                    .Select(c => c.Trim())
+                    .Where(x => x.Count() > 1);
 
                 Quiz quiz = new Quiz()
                 {
