@@ -56,7 +56,7 @@ namespace Quiz_App
 
                 quizInstance.ResultReceived += (sender, result) =>
                 {
-                    if (currentQuizIndex > quizzes.Count - 1)
+                    if (currentQuizIndex > quizzes.Count() - 1)
                     {
                         var color = Player.CurrentPoints > 0
                             ? new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3FB2A0"))
