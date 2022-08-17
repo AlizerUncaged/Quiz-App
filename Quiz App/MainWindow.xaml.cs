@@ -75,6 +75,7 @@ namespace Quiz_App
                     {
                         PointsChanged.Foreground =
                             new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E94F4F"));
+                        PointsChanged.Text = "Attempt depleted.";
                         QuizDone();
                     }
 
