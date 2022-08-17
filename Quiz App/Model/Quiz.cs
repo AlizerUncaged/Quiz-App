@@ -61,7 +61,7 @@ namespace Quiz_App.Model
                 quizzes.Add(quiz);
             }
 
-            return quizzes.OrderBy(x => random.Next());
+            return quizzes.OrderBy(x => random.Next()).ToList();
         }
     }
 }
